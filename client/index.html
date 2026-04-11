@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whasuite 360 - WhatsApp CRM & Marketing Automation Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="Whasuite 360 by Luisant" class="logo-img">
+      </div>
+      <nav class="nav" id="mainNav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#contact" class="btn-primary">Get Started Free</a>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="trust-badges">
+            <span class="badge"><i class="fas fa-check-circle"></i> Meta Business Verified Partner</span>
+            <span class="badge"><i class="fas fa-shield-alt"></i> Secure Payment Integration</span>
+          </div>
+          <h1 class="hero-title">
+            Scale Your Business Conversations with <span class="highlight">Whasuite 360</span>
+          </h1>
+          <p class="hero-subtitle">
+            The all-in-one WhatsApp CRM and Marketing Automation platform built on the official Meta Cloud API. Engage, automate, and convert leads directly where your customers are.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary btn-lg">Get Started for Free</a>
+            <a href="#contact" class="btn-secondary btn-lg">Book a Demo</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-visual">
+            <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="floating-card card-1">
+              <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="card-text">98% Open Rate</div>
+            </div>
+            <div class="floating-card card-2">
+              <div class="card-icon"><i class="fas fa-rocket"></i></div>
+              <div class="card-text">2000+ Messages/Day</div>
+            </div>
+            <div class="floating-card card-3">
+              <div class="card-icon"><i class="fas fa-credit-card"></i></div>
+              <div class="card-text">Integrated Payments</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Relationship Section -->
+  <section class="relationship">
+    <div class="container">
+      <div class="relationship-grid">
+        <div class="relationship-card">
+          <div class="card-header">
+            <div class="icon-box"><i class="fas fa-building"></i></div>
+            <h3>The Developer</h3>
+          </div>
+          <h4>Luisant Software Solutions</h4>
+          <p>The parent enterprise and innovation hub, specializing in high-performance software engineering, multi-tenant SaaS architectures, and the PERN tech stack.</p>
+        </div>
+        <div class="relationship-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="relationship-card">
+          <div class="card-header">
+            <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+            <h3>The Product</h3>
+          </div>
+          <h4>Whasuite 360</h4>
+          <p>The specific brand and platform developed by Luisant to provide official Meta WhatsApp Business Cloud API services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Solution -->
+  <section class="problem-solution">
+    <div class="container">
+      <div class="ps-grid">
+        <div class="ps-card problem">
+          <div class="ps-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <h3>The Problem</h3>
+          <ul>
+            <li>Managing thousands of WhatsApp chats manually is chaotic</li>
+            <li>Unofficial tools risk number bans</li>
+            <li>Fragmented lead data leads to lost revenue</li>
+          </ul>
+        </div>
+        <div class="ps-card solution">
+          <div class="ps-icon"><i class="fas fa-check-circle"></i></div>
+          <h3>The Solution</h3>
+          <p><strong>Whasuite 360 centralizes your communication.</strong></p>
+          <p>Experience 98% open rates with a platform designed for multi-tenant scalability and reliable delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Core Capabilities</p>
+        <h2 class="section-title">More Than Just Messaging</h2>
+        <p class="section-subtitle">A full-scale marketing and CRM automation engine</p>
+      </div>
+
+      <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="features-carousel">
+          <div class="features-track" id="featuresTrack">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-lock"></i></div>
+              <h3>Official Meta API Integration</h3>
+              <p>Unlike unofficial "grey-market" tools that risk account bans, Whasuite 360 is built on the Official Meta WhatsApp Business Cloud API ensuring:</p>
+              <ul>
+                <li><strong>Account Security:</strong> High-volume messaging without the risk of being blocked</li>
+                <li><strong>High Delivery Rates:</strong> Reliable message arrival with real-time status tracking (Sent, Delivered, Read)</li>
+                <li><strong>Verified Branding:</strong> Access to the Green Tick (Official Business Account) status</li>
+              </ul>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+              <h3>Advanced Marketing Automation</h3>
+              <ul>
+                <li><strong>Broadcast Campaigns:</strong> Send personalized templates to thousands of leads simultaneously</li>
+                <li><strong>Message Tiering:</strong> Scale from 250 to 2,000+ conversations per day as your business grows</li>
+                <li><strong>Smart Scheduling:</strong> Plan your marketing campaigns to trigger at the most effective times for your audience</li>
+              </ul>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-users"></i></div>
+              <h3>Integrated CRM & Lead Management</h3>
+              <ul>
+                <li><strong>Lead Extraction:</strong> Automatically capture and organize lead data from incoming chats into a structured CRM</li>
+                <li><strong>Team Collaboration:</strong> Allow multiple agents to handle customer queries from the same official WhatsApp number</li>
+              </ul>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+              <h3>Financial Ecosystem Integration</h3>
+              <p>Whasuite 360 solves the "payment gap" by integrating directly with Razorpay:</p>
+              <ul>
+                <li><strong>UPI Intent Flows:</strong> Customers can pay directly within the WhatsApp chat</li>
+                <li><strong>Payment Links:</strong> Generate and track payment status in real-time without leaving the conversation</li>
+              </ul>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-paper-plane"></i></div>
+              <h3>Automated Marketing & Broadcasts</h3>
+              <p>Send personalized templates to thousands of customers at once without the risk of being banned. Use advanced scheduling to reach your audience at the perfect time.</p>
+              <p><strong>Reach thousands of leads simultaneously with zero ban risk.</strong></p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-robot"></i></div>
+              <h3>Smart Chatbots & Workflows</h3>
+              <p>Build automated flows that handle FAQs, qualify leads, and extract data into your CRM 24/7.</p>
+              <p><strong>Reduce manual workload by up to 70%.</strong></p>
+            </div>
+
+            <!-- Feature 7 -->
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
+              <h3>Integrated WhatsApp Ecommerce</h3>
+              <p>Transform WhatsApp from a chat app into your most profitable sales channel. Whasuite 360 enables a seamless "Browse-to-Buy" journey without requiring your customers to visit an external website.</p>
+              <ul>
+                <li><strong>Native Product Catalogs:</strong> Sync your inventory directly from your backend to WhatsApp. Allow customers to browse products, view high-quality images, and see real-time pricing and descriptions right inside the chat window</li>
+                <li><strong>Interactive Shopping Carts:</strong> Customers can select multiple items, manage quantities, and "Add to Cart" within the interface. This frictionless experience significantly reduces cart abandonment rates compared to traditional e-commerce</li>
+                <li><strong>Automated Order Management:</strong> From the moment an order is placed, Whasuite 360 triggers automated workflows. Send instant order confirmations, shipping updates, and digital receipts—all through the official Meta API</li>
+                <li><strong>In-Chat Checkout with Razorpay:</strong> Close the sale immediately. By leveraging Luisant's deep integration with Razorpay, you can provide a secure checkout experience. Customers can pay via UPI, Credit/Debit cards, or Wallets without ever breaking the conversation flow</li>
+                <li><strong>AI-Powered Upselling:</strong> Use automated flows to suggest related products based on what is in a customer's cart, increasing your Average Order Value (AOV) through intelligent, conversational selling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-btn next" onclick="moveCarousel(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="carousel-indicators" id="carouselIndicators"></div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="comparison" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title">Whasuite 360 vs Unofficial Tools</h2>
+      </div>
+      <div class="comparison-table">
+        <div class="table-header">
+          <div class="th">Feature</div>
+          <div class="th">Unofficial Tools</div>
+          <div class="th highlight-col">Whasuite 360</div>
+        </div>
+        <div class="table-row">
+          <div class="td">Official API</div>
+          <div class="td"><i class="fas fa-times"></i> No (High risk)</div>
+          <div class="td highlight-col"><i class="fas fa-check"></i> Yes (Meta Cloud API)</div>
+        </div>
+        <div class="table-row">
+          <div class="td">Messaging Tier</div>
+          <div class="td"><i class="fas fa-exclamation-triangle"></i> Restricted</div>
+          <div class="td highlight-col"><i class="fas fa-check"></i> Up to 2,000+ per day</div>
+        </div>
+        <div class="table-row">
+          <div class="td">Automation</div>
+          <div class="td"><i class="fas fa-exclamation-triangle"></i> Basic</div>
+          <div class="td highlight-col"><i class="fas fa-check"></i> Advanced Workflows</div>
+        </div>
+        <div class="table-row">
+          <div class="td">Payments</div>
+          <div class="td"><i class="fas fa-times"></i> Manual</div>
+          <div class="td highlight-col"><i class="fas fa-check"></i> Integrated Razorpay</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Success Stories</p>
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-icon">"</div>
+        <p class="testimonial-text">
+          Whasuite 360 transformed how we handle lead generation. The Meta API integration is flawless, and the 2,000-message tier has allowed us to scale rapidly.
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div class="author-info">
+            <div class="author-name">Rathnavilas</div>
+            <div class="author-role">Business Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Ready to dominate the world's most popular messaging app?</h2>
+          <p>Stop struggling with complex API setups and technical hurdles. Join the growing community of businesses scaling their sales and automation with Whasuite 360.</p>
+          <button class="btn-primary btn-lg" onclick="openModal()">Claim Your Free Onboarding</button>
+          <div class="cta-features">
+            <div class="cta-feature">
+              <span class="check-icon"><i class="fas fa-check"></i></span>
+              <span>Meta Cloud API Integration</span>
+            </div>
+            <div class="cta-feature">
+              <span class="check-icon"><i class="fas fa-check"></i></span>
+              <span>Complimentary Website</span>
+            </div>
+            <div class="cta-feature">
+              <span class="check-icon"><i class="fas fa-check"></i></span>
+              <span>White-Glove Setup</span>
+            </div>
+          </div>
+          <p class="cta-note">Zero setup fees. Zero technical stress. Get started in minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2>Get Started Today</h2>
+        <p>Fill out the form below and our team will contact you within 24 hours</p>
+        <button class="btn-primary btn-lg" onclick="openModal()">Open Contact Form</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="contactModal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <h2 class="modal-title">Claim Your Free Onboarding & Meta Setup</h2>
+      <p class="modal-subtitle">Fill out the details below, and our technical team will reach out to begin your official Meta Business Cloud API integration.</p>
+      
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="businessName">Business Name *</label>
+          <input type="text" id="businessName" name="businessName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="yourName">Your Name *</label>
+          <input type="text" id="yourName" name="yourName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsappNumber">WhatsApp Business Number *</label>
+          <input type="tel" id="whatsappNumber" name="whatsappNumber" required>
+        </div>
+
+        <div class="form-group">
+          <label for="hasWebsite">Do you already have a website? *</label>
+          <select id="hasWebsite" name="hasWebsite" required>
+            <option value="">Select an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="primaryGoal">Primary Goal *</label>
+          <select id="primaryGoal" name="primaryGoal" required>
+            <option value="">Select your primary goal</option>
+            <option value="marketing">WhatsApp Marketing & Broadcasts</option>
+            <option value="ecommerce">E-commerce & Payments (Razorpay)</option>
+            <option value="appointment">Appointment booking</option>
+            <option value="all">All of the above</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block">Submit & Start My Setup</button>
+        <p class="form-note">Our team will contact you within 24 hours.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+    <div class="modal-content success-content">
+      <button class="modal-close" onclick="closeSuccessModal()">×</button>
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h2 class="modal-title">Welcome to Whasuite 360!</h2>
+      <div class="success-message">
+        <p><strong>Hi <span id="successName"></span>!</strong></p>
+        <p>You're one step away from official WhatsApp automation. Because you've requested our Free Onboarding, we are ready to build your Meta-approval website at no cost.</p>
+        <p><strong>What we need from you:</strong> Just stay tuned! An expert from Luisant Software Solutions will message you here within 24 hours to collect your business documents and start the setup.</p>
+        <p><strong>Quick Question:</strong> Do you already have a Meta Business Manager account, or should we set that up for you too?</p>
+      </div>
+      <button class="btn-primary" onclick="closeSuccessModal()">Got it!</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-main">Whasuite 360</span>
+            <span class="logo-sub">by Luisant Software Solutions</span>
+          </div>
+          <p class="footer-description">
+            We specialize in enterprise-grade WhatsApp CRM and Ecommerce solutions, leveraging over a decade of software excellence to help businesses scale securely via the Meta Cloud API.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#why-us">Why Choose Us</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#home">About Luisant</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Join Our Newsletter</h4>
+          <p class="newsletter-text">Get exclusive offers and style updates straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn-subscribe">Subscribe</button>
+          </form>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Whasuite 360 - A brand of Luisant Software Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
