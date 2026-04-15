@@ -1,7 +1,7 @@
 // API Configuration
 // Load from environment variable or use default
 const API_CONFIG = {
-  baseURL: window.ENV?.API_URL || 'http://localhost:3010'
+  baseURL: window.ENV?.API_URL || 'https://whatsapp.api.luisant.cloud'
 };
 
 // Export for use in other files
