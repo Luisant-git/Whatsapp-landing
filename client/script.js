@@ -40,7 +40,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Form Submission
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   
   const formData = {
@@ -51,34 +51,58 @@ function handleSubmit(event) {
     primaryGoal: document.getElementById('primaryGoal').value
   };
 
-  // Log form data (in production, send to backend)
-  console.log('Form submitted:', formData);
+  try {
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
 
-  // Show success modal
-  document.getElementById('successName').textContent = formData.yourName;
-  closeModal();
-  
-  setTimeout(() => {
-    const successModal = document.getElementById('successModal');
-    successModal.classList.add('active');
-  }, 300);
+    // Get API URL from config (loaded from .env)
+    const API_URL = API_CONFIG.baseURL;
+    
+    console.log('Submitting to:', `${API_URL}/landing-contact/submit`);
+    
+    const response = await fetch(`${API_URL}/landing-contact/submit`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
 
-  // Reset form
-  document.getElementById('contactForm').reset();
+    const result = await response.json();
 
-  // In production, you would send this data to your backend
-  // Example:
-  // fetch('/api/submit-form', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(formData)
-  // })
-  // .then(response => response.json())
-  // .then(data => {
-  //   // Handle success
-  //   // Send WhatsApp message via API
-  // })
-  // .catch(error => console.error('Error:', error));
+    if (result.success) {
+      // Show success modal
+      document.getElementById('successName').textContent = formData.yourName;
+      closeModal();
+      
+      setTimeout(() => {
+        const successModal = document.getElementById('successModal');
+        successModal.classList.add('active');
+      }, 300);
+
+      // Reset form
+      document.getElementById('contactForm').reset();
+    } else {
+      // Show error message
+      alert(result.message || 'Something went wrong. Please try again.');
+    }
+
+    // Reset button
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to submit form. Please check your connection and try again.');
+    
+    // Reset button
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Submit & Start My Setup';
+    submitBtn.disabled = false;
+  }
 }
 
 // Smooth scroll for anchor links
@@ -229,19 +253,64 @@ function handleNewsletterSubmit(event) {
   event.preventDefault();
   const email = event.target.querySelector('input[type="email"]').value;
   
-  // Log email (in production, send to backend)
   console.log('Newsletter subscription:', email);
-  
-  // Show success message
   alert('Thank you for subscribing to our newsletter!');
-  
-  // Reset form
   event.target.reset();
-  
-  // In production, send to backend
-  // fetch('/api/subscribe', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ email })
-  // })
 }
+
+// Tab switching functionality
+let currentTabIndex = 0;
+let tabAutoplayInterval;
+
+function switchTab(index) {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+  
+  currentTabIndex = index;
+  
+  tabs.forEach((tab, i) => {
+    if (i === index) {
+      tab.classList.add('active');
+    } else {
+      tab.classList.remove('active');
+    }
+  });
+  
+  panels.forEach((panel, i) => {
+    if (i === index) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+  
+  // Restart autoplay
+  stopTabAutoplay();
+  startTabAutoplay();
+}
+
+function startTabAutoplay() {
+  const totalTabs = document.querySelectorAll('.tab-btn').length;
+  tabAutoplayInterval = setInterval(() => {
+    currentTabIndex = (currentTabIndex + 1) % totalTabs;
+    switchTab(currentTabIndex);
+  }, 5000);
+}
+
+function stopTabAutoplay() {
+  if (tabAutoplayInterval) {
+    clearInterval(tabAutoplayInterval);
+  }
+}
+
+// Initialize tab autoplay on page load
+document.addEventListener('DOMContentLoaded', () => {
+  startTabAutoplay();
+  
+  // Pause autoplay on hover
+  const tabsContainer = document.querySelector('.features-tabs');
+  if (tabsContainer) {
+    tabsContainer.addEventListener('mouseenter', stopTabAutoplay);
+    tabsContainer.addEventListener('mouseleave', startTabAutoplay);
+  }
+});

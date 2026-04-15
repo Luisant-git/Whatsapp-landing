@@ -6,6 +6,9 @@
   <title>Whasuite 360 - WhatsApp CRM & Marketing Automation Platform</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tabs-style.css">
+  <script src="env-loader.js"></script>
+  <script src="config.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -130,95 +133,63 @@
         <p class="section-subtitle">A full-scale marketing and CRM automation engine</p>
       </div>
 
-      <div class="carousel-container">
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        
-        <div class="features-carousel">
-          <div class="features-track" id="featuresTrack">
-            <!-- Feature 1 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-lock"></i></div>
-              <h3>Official Meta API Integration</h3>
-              <p>Unlike unofficial "grey-market" tools that risk account bans, Whasuite 360 is built on the Official Meta WhatsApp Business Cloud API ensuring:</p>
-              <ul>
-                <li><strong>Account Security:</strong> High-volume messaging without the risk of being blocked</li>
-                <li><strong>High Delivery Rates:</strong> Reliable message arrival with real-time status tracking (Sent, Delivered, Read)</li>
-                <li><strong>Verified Branding:</strong> Access to the Green Tick (Official Business Account) status</li>
-              </ul>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
-              <h3>Advanced Marketing Automation</h3>
-              <ul>
-                <li><strong>Broadcast Campaigns:</strong> Send personalized templates to thousands of leads simultaneously</li>
-                <li><strong>Message Tiering:</strong> Scale from 250 to 2,000+ conversations per day as your business grows</li>
-                <li><strong>Smart Scheduling:</strong> Plan your marketing campaigns to trigger at the most effective times for your audience</li>
-              </ul>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-users"></i></div>
-              <h3>Integrated CRM & Lead Management</h3>
-              <ul>
-                <li><strong>Lead Extraction:</strong> Automatically capture and organize lead data from incoming chats into a structured CRM</li>
-                <li><strong>Team Collaboration:</strong> Allow multiple agents to handle customer queries from the same official WhatsApp number</li>
-              </ul>
-            </div>
-
-            <!-- Feature 4 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
-              <h3>Financial Ecosystem Integration</h3>
-              <p>Whasuite 360 solves the "payment gap" by integrating directly with Razorpay:</p>
-              <ul>
-                <li><strong>UPI Intent Flows:</strong> Customers can pay directly within the WhatsApp chat</li>
-                <li><strong>Payment Links:</strong> Generate and track payment status in real-time without leaving the conversation</li>
-              </ul>
-            </div>
-
-            <!-- Feature 5 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-paper-plane"></i></div>
-              <h3>Automated Marketing & Broadcasts</h3>
-              <p>Send personalized templates to thousands of customers at once without the risk of being banned. Use advanced scheduling to reach your audience at the perfect time.</p>
-              <p><strong>Reach thousands of leads simultaneously with zero ban risk.</strong></p>
-            </div>
-
-            <!-- Feature 6 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-robot"></i></div>
-              <h3>Smart Chatbots & Workflows</h3>
-              <p>Build automated flows that handle FAQs, qualify leads, and extract data into your CRM 24/7.</p>
-              <p><strong>Reduce manual workload by up to 70%.</strong></p>
-            </div>
-
-            <!-- Feature 7 -->
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
-              <h3>Integrated WhatsApp Ecommerce</h3>
-              <p>Transform WhatsApp from a chat app into your most profitable sales channel. Whasuite 360 enables a seamless "Browse-to-Buy" journey without requiring your customers to visit an external website.</p>
-              <ul>
-                <li><strong>Native Product Catalogs:</strong> Sync your inventory directly from your backend to WhatsApp. Allow customers to browse products, view high-quality images, and see real-time pricing and descriptions right inside the chat window</li>
-                <li><strong>Interactive Shopping Carts:</strong> Customers can select multiple items, manage quantities, and "Add to Cart" within the interface. This frictionless experience significantly reduces cart abandonment rates compared to traditional e-commerce</li>
-                <li><strong>Automated Order Management:</strong> From the moment an order is placed, Whasuite 360 triggers automated workflows. Send instant order confirmations, shipping updates, and digital receipts—all through the official Meta API</li>
-                <li><strong>In-Chat Checkout with Razorpay:</strong> Close the sale immediately. By leveraging Luisant's deep integration with Razorpay, you can provide a secure checkout experience. Customers can pay via UPI, Credit/Debit cards, or Wallets without ever breaking the conversation flow</li>
-                <li><strong>AI-Powered Upselling:</strong> Use automated flows to suggest related products based on what is in a customer's cart, increasing your Average Order Value (AOV) through intelligent, conversational selling</li>
-              </ul>
-            </div>
-          </div>
+      <div class="features-tabs">
+        <div class="tabs-navigation">
+          <button class="tab-btn active" onclick="switchTab(0)">
+            <i class="fas fa-lock"></i>
+            <span>Meta API</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab(1)">
+            <i class="fas fa-bullhorn"></i>
+            <span>Marketing</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab(2)">
+            <i class="fas fa-users"></i>
+            <span>CRM</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab(3)">
+            <i class="fas fa-credit-card"></i>
+            <span>Payments</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab(4)">
+            <i class="fas fa-paper-plane"></i>
+            <span>Broadcasts</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab(5)">
+            <i class="fas fa-robot"></i>
+            <span>Chatbots</span>
+          </button>
+          <button class="tab-btn" onclick="switchTab(6)">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Ecommerce</span>
+          </button>
         </div>
 
-        <button class="carousel-btn next" onclick="moveCarousel(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+        <div class="tabs-content">
+          <div class="tab-panel active">
+            <div class="tab-grid">
+              <div class="tab-visual">
+                <div class="visual-icon"><i class="fas fa-lock"></i></div>
+              </div>
+              <div class="tab-info">
+                <h3>Official Meta API Integration</h3>
+                <p class="tab-description">Unlike unofficial "grey-market" tools that risk account bans, Whasuite 360 is built on the Official Meta WhatsApp Business Cloud API ensuring:</p>
+                <ul class="feature-list">
+                  <li><i class="fas fa-check-circle"></i><div><strong>Account Security</strong><p>High-volume messaging without the risk of being blocked</p></div></li>
+                  <li><i class="fas fa-check-circle"></i><div><strong>High Delivery Rates</strong><p>Reliable message arrival with real-time status tracking</p></div></li>
+                  <li><i class="fas fa-check-circle"></i><div><strong>Verified Branding</strong><p>Access to the Green Tick status</p></div></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel"><div class="tab-grid"><div class="tab-visual"><div class="visual-icon"><i class="fas fa-bullhorn"></i></div></div><div class="tab-info"><h3>Advanced Marketing Automation</h3><ul class="feature-list"><li><i class="fas fa-check-circle"></i><div><strong>Broadcast Campaigns</strong><p>Send personalized templates to thousands of leads</p></div></li><li><i class="fas fa-check-circle"></i><div><strong>Message Tiering</strong><p>Scale from 250 to 2,000+ conversations per day</p></div></li><li><i class="fas fa-check-circle"></i><div><strong>Smart Scheduling</strong><p>Plan campaigns at effective times</p></div></li></ul></div></div></div>
+          <div class="tab-panel"><div class="tab-grid"><div class="tab-visual"><div class="visual-icon"><i class="fas fa-users"></i></div></div><div class="tab-info"><h3>Integrated CRM & Lead Management</h3><ul class="feature-list"><li><i class="fas fa-check-circle"></i><div><strong>Lead Extraction</strong><p>Automatically capture and organize lead data</p></div></li><li><i class="fas fa-check-circle"></i><div><strong>Team Collaboration</strong><p>Multiple agents handle queries from same number</p></div></li></ul></div></div></div>
+          <div class="tab-panel"><div class="tab-grid"><div class="tab-visual"><div class="visual-icon"><i class="fas fa-credit-card"></i></div></div><div class="tab-info"><h3>Financial Ecosystem Integration</h3><p class="tab-description">Whasuite 360 solves the "payment gap" by integrating with Razorpay:</p><ul class="feature-list"><li><i class="fas fa-check-circle"></i><div><strong>UPI Intent Flows</strong><p>Customers pay directly within WhatsApp chat</p></div></li><li><i class="fas fa-check-circle"></i><div><strong>Payment Links</strong><p>Generate and track payment status in real-time</p></div></li></ul></div></div></div>
+          <div class="tab-panel"><div class="tab-grid"><div class="tab-visual"><div class="visual-icon"><i class="fas fa-paper-plane"></i></div></div><div class="tab-info"><h3>Automated Marketing & Broadcasts</h3><p class="tab-description">Send personalized templates to thousands of customers without ban risk.</p><div class="highlight-box"><i class="fas fa-star"></i><strong>Reach thousands of leads with zero ban risk</strong></div></div></div></div>
+          <div class="tab-panel"><div class="tab-grid"><div class="tab-visual"><div class="visual-icon"><i class="fas fa-robot"></i></div></div><div class="tab-info"><h3>Smart Chatbots & Workflows</h3><p class="tab-description">Build automated flows that handle FAQs and qualify leads 24/7.</p><div class="highlight-box"><i class="fas fa-chart-line"></i><strong>Reduce manual workload by up to 70%</strong></div></div></div></div>
+          <div class="tab-panel"><div class="tab-grid"><div class="tab-visual"><div class="visual-icon"><i class="fas fa-shopping-cart"></i></div></div><div class="tab-info"><h3>Integrated WhatsApp Ecommerce</h3><p class="tab-description">Transform WhatsApp into your most profitable sales channel.</p><ul class="feature-list"><li><i class="fas fa-check-circle"></i><div><strong>Native Product Catalogs</strong><p>Sync inventory directly to WhatsApp</p></div></li><li><i class="fas fa-check-circle"></i><div><strong>Interactive Shopping Carts</strong><p>Customers manage items within chat</p></div></li><li><i class="fas fa-check-circle"></i><div><strong>In-Chat Checkout</strong><p>Secure payment via Razorpay</p></div></li></ul></div></div></div>
+        </div>
       </div>
-
-      <div class="carousel-indicators" id="carouselIndicators"></div>
     </div>
   </section>
 
