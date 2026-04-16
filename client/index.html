@@ -25,7 +25,7 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       <div class="header-actions">
-        <a href="#contact" class="btn-primary">Get Started Free</a>
+        <button class="btn-primary" onclick="openModal()">Get Started Free</button>
       </div>
       <button class="menu-toggle" onclick="toggleMenu()">
         <span></span>
@@ -51,8 +51,8 @@
             The all-in-one WhatsApp CRM and Marketing Automation platform built on the official Meta Cloud API. Engage, automate, and convert leads directly where your customers are.
           </p>
           <div class="hero-buttons">
-            <a href="#contact" class="btn-primary btn-lg">Get Started for Free</a>
-            <a href="#contact" class="btn-secondary btn-lg">Book a Demo</a>
+            <button class="btn-primary btn-lg" onclick="openModal()">Get Started for Free</button>
+            <button class="btn-secondary btn-lg" onclick="openModal()">Book a Demo</button>
           </div>
         </div>
         <div class="hero-image">
@@ -334,6 +334,20 @@
             <option value="appointment">Appointment booking</option>
             <option value="all">All of the above</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <label for="captchaInput">Security Verification *</label>
+          <div class="captcha-container">
+            <div class="captcha-visual" id="captchaBox">
+              <canvas id="captchaCanvas" width="150" height="50"></canvas>
+            </div>
+            <button type="button" class="btn-refresh" onclick="generateCaptcha()" title="Refresh Captcha">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <input type="text" id="captchaInput" placeholder="Enter the code" required>
+          </div>
+          <p id="captchaError" class="error-msg" style="display: none;">Incorrect code. Please try again.</p>
         </div>
 
         <button type="submit" class="btn-primary btn-block">Submit & Start My Setup</button>

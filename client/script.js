@@ -12,11 +12,71 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
+// Captcha Logic
+let currentCaptcha = '';
+
+function generateCaptcha() {
+  const canvas = document.getElementById('captchaCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let captcha = '';
+  for (let i = 0; i < 6; i++) {
+    captcha += chars[Math.floor(Math.random() * chars.length)];
+  }
+  currentCaptcha = captcha;
+
+  // Clear canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Background noise
+  ctx.fillStyle = '#f3f4f6';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  for (let i = 0; i < 30; i++) {
+    ctx.beginPath();
+    ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.strokeStyle = `rgba(0,0,0,${Math.random() * 0.1})`;
+    ctx.stroke();
+  }
+
+  // Draw text
+  ctx.font = 'bold 30px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  
+  for (let i = 0; i < captcha.length; i++) {
+    const x = 25 + i * 20;
+    const y = 25 + (Math.random() * 10 - 5);
+    const angle = (Math.random() * 20 - 10) * Math.PI / 180;
+    
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.fillStyle = `hsl(${Math.random() * 360}, 50%, 30%)`;
+    ctx.fillText(captcha[i], 0, 0);
+    ctx.restore();
+  }
+  
+  // Clear error message and input
+  const errorMsg = document.getElementById('captchaError');
+  if (errorMsg) errorMsg.style.display = 'none';
+  const input = document.getElementById('captchaInput');
+  if (input) input.value = '';
+}
+
 // Modal Functions
 function openModal() {
+  console.log('Opening Modal...');
   const modal = document.getElementById('contactModal');
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    generateCaptcha(); // Generate new captcha each time modal opens
+  } else {
+    console.error('Modal element #contactModal not found!');
+  }
 }
 
 function closeModal() {
@@ -43,13 +103,35 @@ document.addEventListener('keydown', (e) => {
 async function handleSubmit(event) {
   event.preventDefault();
   
-  const formData = {
-    businessName: document.getElementById('businessName').value,
-    yourName: document.getElementById('yourName').value,
-    whatsappNumber: document.getElementById('whatsappNumber').value,
-    hasWebsite: document.getElementById('hasWebsite').value,
-    primaryGoal: document.getElementById('primaryGoal').value
-  };
+  // Validate Captcha (Case-insensitive)
+  const captchaInput = document.getElementById('captchaInput').value.trim();
+  const errorMsg = document.getElementById('captchaError');
+  
+  console.log('Captcha Attempt:', captchaInput, 'Expected:', currentCaptcha);
+
+  if (captchaInput.toLowerCase() !== currentCaptcha.toLowerCase()) {
+    console.warn('Captcha mismatch!');
+    if (errorMsg) errorMsg.style.display = 'flex';
+    document.getElementById('captchaInput').focus();
+    return;
+  }
+  
+  if (errorMsg) errorMsg.style.display = 'none';
+  
+  let formData;
+  try {
+    formData = {
+      businessName: document.getElementById('businessName').value,
+      yourName: document.getElementById('yourName').value,
+      whatsappNumber: document.getElementById('whatsappNumber').value,
+      hasWebsite: document.getElementById('hasWebsite').value,
+      primaryGoal: document.getElementById('primaryGoal').value
+    };
+  } catch (err) {
+    console.error('Error collecting form data:', err);
+    alert('An internal error occurred. Please try again later.');
+    return;
+  }
 
   try {
     // Show loading state
@@ -163,7 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // Initialize carousel
+  // Open modal automatically on page load
+  setTimeout(() => openModal(), 500);
+
+  // Initialize carousel (if elements exist)
   initCarousel();
 });
 
@@ -174,6 +259,8 @@ const totalSlides = 7;
 function initCarousel() {
   // Create indicators
   const indicatorsContainer = document.getElementById('carouselIndicators');
+  if (!indicatorsContainer) return; // Exit if element doesn't exist
+  
   for (let i = 0; i < totalSlides; i++) {
     const indicator = document.createElement('div');
     indicator.className = 'indicator';
@@ -202,6 +289,8 @@ function goToSlide(index) {
 
 function updateCarousel() {
   const track = document.getElementById('featuresTrack');
+  if (!track) return; // Exit if element doesn't exist
+  
   const offset = -currentSlide * 100;
   track.style.transform = `translateX(${offset}%)`;
   
@@ -221,6 +310,7 @@ function updateCarousel() {
     }
   });
 }
+
 
 // Auto-play carousel (optional)
 let autoplayInterval;
@@ -305,12 +395,15 @@ function stopTabAutoplay() {
 
 // Initialize tab autoplay on page load
 document.addEventListener('DOMContentLoaded', () => {
-  startTabAutoplay();
-  
-  // Pause autoplay on hover
-  const tabsContainer = document.querySelector('.features-tabs');
-  if (tabsContainer) {
-    tabsContainer.addEventListener('mouseenter', stopTabAutoplay);
-    tabsContainer.addEventListener('mouseleave', startTabAutoplay);
+  const tabs = document.querySelectorAll('.tab-btn');
+  if (tabs.length > 0) {
+    startTabAutoplay();
+    
+    // Pause autoplay on hover
+    const tabsContainer = document.querySelector('.features-tabs');
+    if (tabsContainer) {
+      tabsContainer.addEventListener('mouseenter', stopTabAutoplay);
+      tabsContainer.addEventListener('mouseleave', startTabAutoplay);
+    }
   }
 });
