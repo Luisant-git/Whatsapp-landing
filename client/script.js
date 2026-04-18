@@ -338,6 +338,88 @@ if (carouselContainer) {
   carouselContainer.addEventListener('mouseleave', startAutoplay);
 }
 
+// Testimonials Carousel
+let currentTestimonial = 0;
+const totalTestimonials = 5;
+let testimonialAutoplayInterval;
+
+function initTestimonials() {
+  // Create indicators
+  const indicatorsContainer = document.getElementById('testimonialIndicators');
+  for (let i = 0; i < totalTestimonials; i++) {
+    const indicator = document.createElement('div');
+    indicator.className = 'testimonial-indicator';
+    if (i === 0) indicator.classList.add('active');
+    indicator.onclick = () => goToTestimonial(i);
+    indicatorsContainer.appendChild(indicator);
+  }
+  
+  // Start autoplay
+  startTestimonialAutoplay();
+}
+
+function moveTestimonial(direction) {
+  currentTestimonial += direction;
+  
+  if (currentTestimonial < 0) {
+    currentTestimonial = totalTestimonials - 1;
+  } else if (currentTestimonial >= totalTestimonials) {
+    currentTestimonial = 0;
+  }
+  
+  updateTestimonials();
+}
+
+function goToTestimonial(index) {
+  currentTestimonial = index;
+  updateTestimonials();
+}
+
+function updateTestimonials() {
+  const track = document.getElementById('testimonialsTrack');
+  const offset = -currentTestimonial * 100;
+  track.style.transform = `translateX(${offset}%)`;
+  
+  // Update indicators
+  const indicators = document.querySelectorAll('.testimonial-indicator');
+  indicators.forEach((indicator, index) => {
+    if (index === currentTestimonial) {
+      indicator.classList.add('active');
+    } else {
+      indicator.classList.remove('active');
+    }
+  });
+  
+  // Restart autoplay
+  stopTestimonialAutoplay();
+  startTestimonialAutoplay();
+}
+
+function startTestimonialAutoplay() {
+  stopTestimonialAutoplay();
+  testimonialAutoplayInterval = setInterval(() => {
+    moveTestimonial(1);
+  }, 5000);
+}
+
+function stopTestimonialAutoplay() {
+  if (testimonialAutoplayInterval) {
+    clearInterval(testimonialAutoplayInterval);
+  }
+}
+
+// Initialize testimonials on page load
+document.addEventListener('DOMContentLoaded', () => {
+  initTestimonials();
+  
+  // Pause autoplay on hover
+  const testimonialsCarousel = document.querySelector('.testimonials-carousel');
+  if (testimonialsCarousel) {
+    testimonialsCarousel.addEventListener('mouseenter', stopTestimonialAutoplay);
+    testimonialsCarousel.addEventListener('mouseleave', startTestimonialAutoplay);
+  }
+});
+
 // Newsletter form submission
 function handleNewsletterSubmit(event) {
   event.preventDefault();

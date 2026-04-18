@@ -237,19 +237,97 @@
         <p class="section-label">Success Stories</p>
         <h2 class="section-title">What Our Clients Say</h2>
       </div>
-      <div class="testimonial-card">
-        <div class="quote-icon">"</div>
-        <p class="testimonial-text">
-          Whasuite 360 transformed how we handle lead generation. The Meta API integration is flawless, and the 2,000-message tier has allowed us to scale rapidly.
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">R</div>
-          <div class="author-info">
-            <div class="author-name">Rathnavilas</div>
-            <div class="author-role">Business Owner</div>
+      
+      <div class="testimonials-carousel">
+        <button class="testimonial-btn prev" onclick="moveTestimonial(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="testimonials-wrapper">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                Whasuite 360 transformed how we handle lead generation. The Meta API integration is flawless, and the 2,000-message tier has allowed us to scale rapidly.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">R</div>
+                <div class="author-info">
+                  <div class="author-name">Rathnavilas</div>
+                  <div class="author-role">Business Owner</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                The automation features saved us countless hours. We can now manage 2000+ customer conversations daily without any manual intervention. Highly recommended!
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">S</div>
+                <div class="author-info">
+                  <div class="author-name">Suresh Kumar</div>
+                  <div class="author-role">E-commerce Manager</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                Razorpay integration made payment collection seamless. Our customers love the convenience of paying directly through WhatsApp. Sales increased by 40%!
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">P</div>
+                <div class="author-info">
+                  <div class="author-name">Priya Sharma</div>
+                  <div class="author-role">Retail Store Owner</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                The chatbot workflows are incredibly smart. They handle FAQs perfectly and qualify leads before routing to our sales team. Game changer for our business!
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">A</div>
+                <div class="author-info">
+                  <div class="author-name">Arun Patel</div>
+                  <div class="author-role">Sales Director</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+              <div class="quote-icon">"</div>
+              <p class="testimonial-text">
+                Official Meta API gives us peace of mind. No more worrying about account bans. The green tick verification boosted our brand credibility significantly.
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">M</div>
+                <div class="author-info">
+                  <div class="author-name">Meera Reddy</div>
+                  <div class="author-role">Marketing Head</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        
+        <button class="testimonial-btn next" onclick="moveTestimonial(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
+      
+      <div class="testimonial-indicators" id="testimonialIndicators"></div>
     </div>
   </section>
 
@@ -281,13 +359,77 @@
     </div>
   </section>
 
-  <!-- Contact Form Section -->
+  <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <div class="container">
-      <div class="contact-card">
-        <h2>Get Started Today</h2>
-        <p>Fill out the form below and our team will contact you within 24 hours</p>
-        <button class="btn-primary btn-lg" onclick="openModal()">Open Contact Form</button>
+      <div class="section-header">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Reach out to us for any inquiries or support</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Address</h4>
+              <p>288/6, 2nd Floor, NM Complex,<br>
+              Opposite to ARRS Multiplex,<br>
+              Salem-636 004, Tamil Nadu,<br>
+              India.</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email ID</h4>
+              <p><a href="mailto:info@luisantsoftwares.com">info@luisantsoftwares.com</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Phone</h4>
+              <p><a href="tel:+914274056538">+91 427 405 6538</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Mobile</h4>
+              <p><a href="tel:+919080356538">+91 90803 56538</a></p>
+            </div>
+          </div>
+          
+          <button class="btn-primary btn-lg" onclick="openModal()" style="width: 100%; margin-top: 16px; gap: 10px;">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send Message</span>
+          </button>
+        </div>
+        
+        <div class="contact-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.3789218615602!2d78.13268260946923!3d11.66753534208004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf041b47c78af%3A0x9cb679479afd03dd!2sLuisant%20Software%20Solutions!5e0!3m2!1sen!2sin!4v1776517375532!5m2!1sen!2sin"
+            width="100%" 
+            height="100%" 
+            style="border:0; border-radius: 16px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -298,7 +440,7 @@
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
       <h2 class="modal-title">Claim Your Free Onboarding & Meta Setup</h2>
-      <p class="modal-subtitle">Fill out the details below, and our technical team will reach out to begin your official Meta Business Cloud API integration.</p>
+      <p class="modal-subtitle">Fill out the details below, and our team will reach out to begin your Meta Business Cloud API integration.</p>
       
       <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
@@ -307,7 +449,7 @@
         </div>
 
         <div class="form-group">
-          <label for="yourName">Your Name *</label>
+          <label for="yourName">Contact Person's Name *</label>
           <input type="text" id="yourName" name="yourName" required>
         </div>
 
@@ -431,7 +573,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 Whasuite 360 - A brand of Luisant Software Solutions. All rights reserved.</p>
+        <p>&copy; 2026 Whasuite 360 - A brand of Luisant Software Solutions. All rights reserved.</p>
       </div>
     </div>
   </footer>
