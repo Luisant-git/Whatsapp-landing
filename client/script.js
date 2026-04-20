@@ -120,13 +120,23 @@ async function handleSubmit(event) {
   
   let formData;
   try {
+    // Get all checked checkboxes for primaryGoal
+    const primaryGoalCheckboxes = document.querySelectorAll('input[name="primaryGoal"]:checked');
+    const primaryGoals = Array.from(primaryGoalCheckboxes).map(cb => cb.value);
+    
     formData = {
       businessName: document.getElementById('businessName').value,
       yourName: document.getElementById('yourName').value,
       whatsappNumber: document.getElementById('whatsappNumber').value,
       hasWebsite: document.getElementById('hasWebsite').value,
-      primaryGoal: document.getElementById('primaryGoal').value
+      primaryGoal: primaryGoals.length > 0 ? primaryGoals : []
     };
+    
+    // Validate at least one goal is selected
+    if (primaryGoals.length === 0) {
+      alert('Please select at least one primary goal.');
+      return;
+    }
   } catch (err) {
     console.error('Error collecting form data:', err);
     alert('An internal error occurred. Please try again later.');

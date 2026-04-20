@@ -468,14 +468,21 @@
         </div>
 
         <div class="form-group">
-          <label for="primaryGoal">Primary Goal *</label>
-          <select id="primaryGoal" name="primaryGoal" required>
-            <option value="">Select your primary goal</option>
-            <option value="marketing">WhatsApp Marketing & Broadcasts</option>
-            <option value="ecommerce">E-commerce & Payments (Razorpay)</option>
-            <option value="appointment">Appointment booking</option>
-            <option value="all">All of the above</option>
-          </select>
+          <label for="primaryGoal">Primary Goals (Select all that apply) *</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="primaryGoal" value="marketing">
+              <span>WhatsApp Marketing & Broadcasts</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="primaryGoal" value="ecommerce">
+              <span>E-commerce & Payments (Razorpay)</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="primaryGoal" value="appointment">
+              <span>Appointment booking</span>
+            </label>
+          </div>
         </div>
 
         <div class="form-group">
