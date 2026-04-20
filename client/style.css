@@ -1480,10 +1480,18 @@ body {
   font-size: 14px;
 }
 
-/* Responsive */
+/* Responsive — Tablet */
 @media (max-width: 968px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
   .hero-title {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   .section-title {
@@ -1512,14 +1520,24 @@ body {
 
   .relationship-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .relationship-arrow {
     transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .relationship-card {
+    padding: 28px;
   }
 
   .ps-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ps-card {
+    padding: 32px;
   }
 
   .comparison-table {
@@ -1527,20 +1545,22 @@ body {
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
   }
 
   .footer-newsletter {
     max-width: 100%;
+    grid-column: 1 / -1;
   }
 
   .newsletter-form {
-    flex-direction: column;
-  }
-
-  .btn-subscribe {
-    width: 100%;
+    flex-direction: row;
   }
 
   .contact-grid {
@@ -1552,11 +1572,20 @@ body {
   }
 
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-carousel {
+    padding: 0 52px;
   }
 }
 
+/* Responsive — Mobile */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
   .nav,
   .header-actions {
     display: none;
@@ -1573,15 +1602,21 @@ body {
     padding: 24px;
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-lg);
+    z-index: 999;
   }
 
   .menu-toggle {
     display: flex;
   }
 
+  /* Hero */
+  .hero {
+    padding: 24px 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
   }
 
   .hero-image {
@@ -1589,33 +1624,130 @@ body {
   }
 
   .hero-visual {
-    height: 350px;
+    height: 200px;
+    position: relative;
   }
 
   .whatsapp-icon {
-    font-size: 120px;
+    font-size: 80px;
+  }
+
+  .floating-card {
+    padding: 8px 12px;
+    font-size: 11px;
+    border-radius: 12px;
+    gap: 8px;
+  }
+
+  .card-icon {
+    font-size: 16px;
+  }
+
+  .card-text {
+    font-size: 10px;
+  }
+
+  .card-1 {
+    top: 8%;
+    left: 2%;
+  }
+
+  .card-2 {
+    top: 48%;
+    right: 2%;
+  }
+
+  .card-3 {
+    bottom: 8%;
+    left: 2%;
   }
 
   .hero-title {
-    font-size: 32px;
-  }
-
-  .cta-content h2 {
     font-size: 28px;
   }
 
-  .cta-features {
-    flex-direction: column;
-    align-items: center;
+  .hero-subtitle {
+    font-size: 16px;
   }
 
-  .modal-content {
-    padding: 28px 20px;
-    max-height: 90vh;
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn-lg {
+    width: 100%;
+    text-align: center;
+  }
+
+  .trust-badges {
+    gap: 8px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  /* Sections */
+  .relationship,
+  .problem-solution,
+  .features,
+  .comparison,
+  .testimonials,
+  .cta-section,
+  .contact-section {
+    padding: 36px 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
+
+  /* Relationship */
+  .relationship-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .relationship-card {
+    padding: 24px;
+  }
+
+  .relationship-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  /* Problem/Solution */
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-card {
+    padding: 28px 24px;
+  }
+
+  .ps-card h3 {
+    font-size: 22px;
+  }
+
+  /* Comparison */
+  .comparison-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .table-header,
   .table-row {
+    min-width: 480px;
     font-size: 13px;
   }
 
@@ -1624,17 +1756,141 @@ body {
     padding: 12px 8px;
   }
 
+  /* Testimonials */
   .testimonials-carousel {
-    padding: 0 50px;
+    padding: 0 44px;
   }
 
   .testimonial-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 
   .testimonial-card {
-    padding: 32px 24px;
+    padding: 24px 20px;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+  }
+
+  /* CTA */
+  .cta-content h2 {
+    font-size: 24px;
+  }
+
+  .cta-content > p {
+    font-size: 15px;
+  }
+
+  .cta-features {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-map {
+    min-height: 280px;
+  }
+
+  /* Modal */
+  .modal-content {
+    padding: 24px 16px;
+    max-height: 92vh;
+    width: 95%;
+    border-radius: 16px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .captcha-container {
+    flex-wrap: wrap;
+  }
+
+  .captcha-visual {
+    flex: 0 0 130px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 36px 0 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .footer-newsletter {
+    max-width: 100%;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .btn-subscribe {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+/* Responsive — Small Mobile */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-visual {
+    height: 220px;
+  }
+
+  .whatsapp-icon {
+    font-size: 80px;
+  }
+
+  .card-1 { top: 5%; left: 0; }
+  .card-2 { top: 45%; right: 0; }
+  .card-3 { bottom: 5%; left: 0; }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .cta-content h2 {
+    font-size: 20px;
+  }
+
+  .btn-lg {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .testimonials-carousel {
+    padding: 0 40px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
   }
 }

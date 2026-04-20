@@ -180,36 +180,90 @@
 @media (max-width: 968px) {
   .tab-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px;
+    gap: 24px;
+    padding: 28px;
   }
 
   .visual-icon {
-    width: 140px;
-    height: 140px;
-    font-size: 60px;
+    width: 120px;
+    height: 120px;
+    font-size: 52px;
   }
 
   .tab-info h3 {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .tabs-navigation {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .tab-btn {
+    min-width: 90px;
+    padding: 12px 14px;
   }
 }
 
 @media (max-width: 768px) {
   .tabs-navigation {
     justify-content: flex-start;
+    padding-bottom: 8px;
   }
 
   .tab-btn {
-    min-width: 100px;
-    padding: 12px 16px;
+    min-width: 80px;
+    padding: 10px 12px;
+    gap: 6px;
   }
 
   .tab-btn i {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .tab-btn span {
+    font-size: 11px;
   }
 
   .tab-grid {
-    padding: 24px;
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .tab-info h3 {
+    font-size: 20px;
+  }
+
+  .feature-list li {
+    gap: 12px;
+  }
+
+  .feature-list li strong {
+    font-size: 15px;
+  }
+
+  .visual-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-btn {
+    min-width: 70px;
+    padding: 8px 10px;
+  }
+
+  .tab-btn i {
+    font-size: 16px;
+  }
+
+  .tab-btn span {
+    font-size: 10px;
+  }
+
+  .tab-grid {
+    padding: 16px 12px;
   }
 }
