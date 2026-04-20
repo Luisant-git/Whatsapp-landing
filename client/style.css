@@ -1319,7 +1319,7 @@ body {
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
   margin-bottom: 48px;
   align-items: start;
@@ -1478,6 +1478,14 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-light);
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-bottom .social-icons {
+  justify-content: center;
 }
 
 /* Responsive — Tablet */
